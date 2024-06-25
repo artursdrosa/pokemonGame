@@ -1,3 +1,3 @@
 public class ObstacleFactory {
-    public static  //ver o gpt
+    //public static  //ver o gpt
 }

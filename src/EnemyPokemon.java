@@ -18,7 +18,9 @@ public class EnemyPokemon extends Obstacle {
     }
 
     public void attack(Pokemon pokemon){
-        //pokemon.vida -= attackPoints
+        //player.pokemon.vida -= attackPoints
     }
+    
+    
 
 }

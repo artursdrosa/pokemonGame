@@ -5,4 +5,13 @@ public class Item extends Obstacle{
     public void use(Pokemon pokemon, Boolean tipo){
 
     }
+
+	@Override
+	public String toString() {
+		return type == true ? "Health item: +" + points + " hp" : "Strength item: +" + points + " atack"; 
+	}
+    
+    
+    
+    
 }
