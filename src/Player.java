@@ -6,6 +6,8 @@ public class Player {
 	private int[] position; // x and y coordinates
 	private ArrayList<Item> items;
 	
+	
+	
 	public void moveForward() {
 		this.position[0] = this.position[0]+1;
 	}
@@ -32,9 +34,11 @@ public class Player {
 		return pokemons;
 	}
 
-	public void addPokemon(Pokemon newPokemon) {
-		if (pokemons.size()>2) {
-			pokemons.add(newPokemon);
+	public void addPokemon(String name) {
+		if (pokemons.size()>2) { // player can have up to 2 pokemon, so he can select which one he wants to use in battle
+			if (name.toLowerCase() == "charmander") { // the pokemon only exists inside the player
+				pokemons.add(new Charmander());
+			}
 		}else {
 			throw new ArrayIndexOutOfBoundsException(); // using specific exception 
 		}

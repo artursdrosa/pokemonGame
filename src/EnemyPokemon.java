@@ -1,8 +1,13 @@
 public class EnemyPokemon extends Obstacle {
     int heathPoints;
     int attackPoints;
+    
+    public EnemyPokemon() {
+		this.heathPoints = 1;
+		this.attackPoints = 1;
+	}
 
-    public int getHeathPoints() {
+	public int getHeathPoints() {
         return heathPoints;
     }
 
