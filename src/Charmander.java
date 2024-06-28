@@ -8,7 +8,6 @@ public class Charmander extends Pokemon{
 	@Override
 	public void power1() {
 		// TODO Auto-generated method stub
-		
 	}
 
 	@Override

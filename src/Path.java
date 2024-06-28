@@ -1,6 +1,6 @@
 public class Path {
 	private int size;
-	private Obstacle[][] slots;
+	public Obstacle[][] slots;
 	private Player player;
 	private static Path instance; // part of the singleton implementation
 	
@@ -19,8 +19,8 @@ public class Path {
 		this.slots = new Obstacle[pathSize][4];
 		ObstacleFactory factory = new ObstacleFactory();
 		for(int i = 0;i<this.size;i++) {
-			for(Obstacle o: this.slots[i]) {
-				o = factory.createObstacle();
+			for (int j = 0; j < 4; j++) {
+				slots[i][j] = factory.createObstacle();
 			}
 		}
 	}
@@ -33,12 +33,16 @@ public class Path {
 	}
 	@Override
 	public String toString() {
-		String result = "Path [size=" + size + "]";
+		String result = "Path [size=" + size + "] \n";
+		int cont = 0;
 		for(int i = 0;i<this.size;i++) {
+			result += "\n";
 			for(Obstacle o: this.slots[i]) {
+				cont++;
 				result += " | " + o.toString();
 			}
 		}
+		System.out.println(cont);
 		return result;
 	}
 

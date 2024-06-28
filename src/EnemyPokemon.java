@@ -10,8 +10,8 @@ public class EnemyPokemon extends Obstacle {
 	public int getHeathPoints() {
         return heathPoints;
     }
-
-    public int getAttackPoints() {
+	
+	public int getAttackPoints() {
         return attackPoints;
     }
     public void setHeathPoints(int heathPoints) {
@@ -26,6 +26,9 @@ public class EnemyPokemon extends Obstacle {
         //player.pokemon.vida -= attackPoints
     }
     
-    
+    @Override
+   	public String toString() {
+   		return "EnemyPokemon hp = " + heathPoints + " | attackPoints=" + attackPoints + ",";
+   	}
 
 }
