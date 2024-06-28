@@ -4,15 +4,14 @@ public class Bulbasaur extends Pokemon{
 	}
 
 	@Override
-	public void power1() {
-		// TODO Auto-generated method stub
-		
+	public void power1(EnemyPokemon enemy) {
+		enemy.setHeathPoints(enemy.getHeathPoints()-getAtackPoints());
 	}
 
 	@Override
-	public void power2() {
-		// TODO Auto-generated method stub
-		
+	public void power2(EnemyPokemon enemy) {
+		enemy.setHeathPoints(enemy.getHeathPoints()-(getAtackPoints()-30));
+		setHealthPoints(getHealthPoints()+30);
 	}
 
 	@Override
