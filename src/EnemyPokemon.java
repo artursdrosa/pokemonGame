@@ -1,10 +1,26 @@
 public class EnemyPokemon extends Obstacle {
-    int heathPoints;
-    int attackPoints;
+    private int heathPoints;
+    private int attackPoints;
     
     public EnemyPokemon() {
-		this.heathPoints = 1;
-		this.attackPoints = 1;
+		double aux = Math.random(); // 0 to 1
+
+        if(aux <= 0.24) { //average enemy
+            this.heathPoints = 100;
+            this.attackPoints = 50;
+        }else
+            if(aux>=0.25 && aux<=0.49) { // strongest enemy
+                this.heathPoints = 150;
+                this.attackPoints = 300;
+            }else
+                if(aux>=0.5 && aux<=0.75) { //roughest enemy
+                this.heathPoints = 500;
+                this.attackPoints = 50;
+                }else{
+                    this.heathPoints = 400; //hardest enemy
+                    this.attackPoints = 400;
+                }
+
 	}
 
 	public int getHeathPoints() {
@@ -23,8 +39,9 @@ public class EnemyPokemon extends Obstacle {
     }
 
     public void attack(Pokemon pokemon){
-        //player.pokemon.vida -= attackPoints
+        pokemon.setHealthPoints(pokemon.getHealthPoints()-this.attackPoints); // pega a vida do pokemon, subtrai o attack do enemy, e seta o resultado como a vida do pokemon
     }
+
     
     @Override
    	public String toString() {

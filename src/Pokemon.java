@@ -6,8 +6,8 @@ public abstract class Pokemon {
 	private char level; // is incremented when the pokemon evolves
 	private int xp;
 	
-	public abstract void power1();
-	public abstract void power2();
+	public abstract void power1(EnemyPokemon enemy);
+	public abstract void power2(EnemyPokemon enemy);
 	public abstract void tryToEvolve();
 	
 	public void useItem(Item item) { // tem que pegar o pokemon do player e o item do player no main
@@ -33,6 +33,17 @@ public abstract class Pokemon {
 	public String getName() {
 		return name;
 	}
+	public void setHealthPoints(int healthPoints) {
+		this.healthPoints = healthPoints;
+	}
+	public void setAtackPoints(int atackPoints) {
+		this.atackPoints = atackPoints;
+	}
+
+	public void setXp(int xp) {
+		this.xp = xp;
+	}
+
 	public Pokemon(String name, int healthPoints, int atackPoints) {
 		this.name = name;
 		this.healthPoints = healthPoints;
