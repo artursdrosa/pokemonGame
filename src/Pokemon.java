@@ -36,8 +36,8 @@ public abstract class Pokemon {
 	public void setHealthPoints(int healthPoints) {
 		this.healthPoints = healthPoints;
 	}
-	public void setAtackPoints(int atackPoints) {
-		this.atackPoints = atackPoints;
+	public void setAtackPoints(int attackPoints) {
+		this.attackPoints = attackPoints;
 	}
 
 	public void setXp(int xp) {

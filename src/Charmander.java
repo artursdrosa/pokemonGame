@@ -7,13 +7,13 @@ public class Charmander extends Pokemon{
 
 	@Override
 	public void power1(EnemyPokemon enemy) {
-		enemy.setHeathPoints(enemy.getHeathPoints()-getAtackPoints());
+		enemy.setHeathPoints(enemy.getHeathPoints()-this.getAttackPoints());
 	}
 
 	@Override
 	public void power2(EnemyPokemon enemy) {
 		setHealthPoints(getHealthPoints()-20);
-		enemy.setHeathPoints(enemy.getHeathPoints()-(getAtackPoints()+50));
+		enemy.setHeathPoints(enemy.getHeathPoints()-(this.getAttackPoints()+50));
 	}
 
 	@Override

@@ -5,12 +5,12 @@ public class Bulbasaur extends Pokemon{
 
 	@Override
 	public void power1(EnemyPokemon enemy) {
-		enemy.setHeathPoints(enemy.getHeathPoints()-getAtackPoints());
+		enemy.setHeathPoints(enemy.getHeathPoints()-this.getAttackPoints());
 	}
 
 	@Override
 	public void power2(EnemyPokemon enemy) {
-		enemy.setHeathPoints(enemy.getHeathPoints()-(getAtackPoints()-30));
+		enemy.setHeathPoints(enemy.getHeathPoints()-(this.getAttackPoints()-30));
 		setHealthPoints(getHealthPoints()+30);
 	}
 
