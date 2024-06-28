@@ -2,7 +2,7 @@
 public abstract class Pokemon {
 	private String name;
 	private int healthPoints;
-	private int atackPoints;
+	private int attackPoints;
 	private char level; // is incremented when the pokemon evolves
 	private int xp;
 	
@@ -10,11 +10,19 @@ public abstract class Pokemon {
 	public abstract void power2(EnemyPokemon enemy);
 	public abstract void tryToEvolve();
 	
+	public void useItem(Item item) { // tem que pegar o pokemon do player e o item do player no main
+	    if (item.isType()) {
+	        this.healthPoints += item.getPoints();
+	    } else {
+	        this.attackPoints += item.getPoints();
+	    }
+	}
+		
 	public int getHealthPoints() {
 		return healthPoints;
 	}
-	public int getAtackPoints() {
-		return atackPoints;
+	public int getAttackPoints() {
+		return attackPoints;
 	}
 	public int getLevel() {
 		return level;
@@ -39,11 +47,15 @@ public abstract class Pokemon {
 	public Pokemon(String name, int healthPoints, int atackPoints) {
 		this.name = name;
 		this.healthPoints = healthPoints;
-		this.atackPoints = atackPoints;
+		this.attackPoints = atackPoints;
 		this.level = '1';
 		this.xp = 0;
 	}
 	
+	@Override
+	public String toString() {
+		return name + " => health: " + healthPoints + " atack: " + attackPoints + " | ";
+	}
 
 	
 }
