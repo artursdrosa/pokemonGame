@@ -10,7 +10,7 @@ public abstract class Pokemon {
 	public abstract void power2();
 	public abstract void tryToEvolve();
 	
-	public void useItem(Item item) {
+	public void useItem(Item item) { // tem que pegar o pokemon do player e o item do player no main
 	    if (item.isType()) {
 	        this.healthPoints += item.getPoints();
 	    } else {
