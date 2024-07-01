@@ -18,7 +18,19 @@ public class Charmander extends Pokemon{
 
 	@Override
 	public void tryToEvolve() {
-		// TODO Auto-generated method stub
+		if(this.getXp()>=20 && this.getLevel()=='1'){
+			this.setName("Charmeleon");
+			this.setHealthPoints(1400);
+			this.setAttackPoints(700);
+			this.setLevel('2');
+		}else
+		if(this.getXp()>=35 && this.getLevel()=='2'){
+			this.setName("Charizard");
+			this.setHealthPoints(2000);
+			this.setAttackPoints(1250);
+			this.setLevel('3');
+		}else
+			System.out.println("Você não tem XP suficiente para evoluir!");
 		
 	}
 }

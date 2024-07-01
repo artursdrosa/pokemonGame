@@ -7,6 +7,8 @@ public class Main {
 		Path p = Path.getInstance();
 		p.startOrResetGame(6, theo);
 		System.out.println(p.toString());
+
+
 	}
 
 }

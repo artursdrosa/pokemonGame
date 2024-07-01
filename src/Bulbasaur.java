@@ -16,7 +16,19 @@ public class Bulbasaur extends Pokemon{
 
 	@Override
 	public void tryToEvolve() {
-		// TODO Auto-generated method stub
+		if(this.getXp()>=20 && this.getLevel()=='1'){
+			this.setName("Ivysaur");
+			this.setHealthPoints(1800);
+			this.setAttackPoints(400);
+			this.setLevel('2');
+		}else
+		if(this.getXp()>=35 && this.getLevel()=='2'){
+			this.setName("Venusaur");
+			this.setHealthPoints(2400);
+			this.setAttackPoints(750);
+			this.setLevel('3');
+		}else
+			System.out.println("Você não tem XP suficiente para evoluir!");
 		
 	}
 

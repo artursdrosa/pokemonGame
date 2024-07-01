@@ -9,6 +9,8 @@ public abstract class Pokemon {
 	public abstract void power1(EnemyPokemon enemy);
 	public abstract void power2(EnemyPokemon enemy);
 	public abstract void tryToEvolve();
+
+
 	
 	public void useItem(Item item) { // tem que pegar o pokemon do player e o item do player no main
 	    if (item.isType()) {
@@ -44,6 +46,19 @@ public abstract class Pokemon {
 		this.xp = xp;
 	}
 
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public void setAttackPoints(int attackPoints) {
+		this.attackPoints = attackPoints;
+	}
+
+	public void setLevel(char level) {
+		this.level = level;
+	}
+
+
 	public Pokemon(String name, int healthPoints, int atackPoints) {
 		this.name = name;
 		this.healthPoints = healthPoints;
@@ -56,6 +71,7 @@ public abstract class Pokemon {
 	public String toString() {
 		return "| "+ name + " => health: " + healthPoints + " atack: " + attackPoints + " level: " + level + " | ";
 	}
+
 
 	
 }

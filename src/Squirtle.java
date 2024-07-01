@@ -18,8 +18,21 @@ public class Squirtle extends Pokemon{
 
 	@Override
 	public void tryToEvolve() {
-		// TODO Auto-generated method stub
-		
+		if(this.getXp()>=20 && this.getLevel()=='1'){
+			this.setName("Watertortle");
+			this.setHealthPoints(1600);
+			this.setAttackPoints(600);
+			this.setLevel('2');
+		}else
+			if(this.getXp()>=35 && this.getLevel()=='2'){
+				this.setName("Blastoise");
+				this.setHealthPoints(2100);
+				this.setAttackPoints(1000);
+				this.setLevel('3');
+			}else
+				System.out.println("Você não tem XP suficiente para evoluir!");
+
+
 	}
 
 }

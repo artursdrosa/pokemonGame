@@ -5,20 +5,20 @@ public class EnemyPokemon extends Obstacle {
     public EnemyPokemon() {
 		double aux = Math.random(); // 0 to 1
 
-        if(aux <= 0.24) { //average enemy
-            this.heathPoints = 100;
-            this.attackPoints = 50;
+        if(aux <= 0.29) { //average enemy
+            this.heathPoints = 200;
+            this.attackPoints = 100;
         }else
-            if(aux>=0.25 && aux<=0.49) { // strongest enemy
-                this.heathPoints = 150;
-                this.attackPoints = 300;
+            if(aux>=0.30 && aux<=0.59) { // strongest enemy
+                this.heathPoints = 200;
+                this.attackPoints = 400;
             }else
-                if(aux>=0.5 && aux<=0.75) { //roughest enemy
-                this.heathPoints = 500;
-                this.attackPoints = 50;
+                if(aux>=0.60 && aux<=0.89) { //roughest enemy
+                this.heathPoints = 800;
+                this.attackPoints = 250;
                 }else{
-                    this.heathPoints = 400; //hardest enemy
-                    this.attackPoints = 400;
+                    this.heathPoints = 1000; //hardest enemy
+                    this.attackPoints = 500;
                 }
 
 	}
@@ -45,7 +45,7 @@ public class EnemyPokemon extends Obstacle {
     
     @Override
    	public String toString() {
-   		return "EnemyPokemon hp = " + heathPoints + " | attackPoints=" + attackPoints + ",";
+   		return "EnemyPokemon hp = " + heathPoints + " , attackPoints=" + attackPoints + ",";
    	}
 
 }
