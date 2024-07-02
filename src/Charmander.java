@@ -2,7 +2,12 @@
 public class Charmander extends Pokemon{
 	public Charmander() {
 		super("Charmander", 1100, 450);
-		// TODO Auto-generated constructor stub
+	}
+	
+	@Override
+	public void showPowers() {
+		System.out.println("1. Flamethrower: Performs an avarege attack doing " + this.getAttackPoints() +" damage");
+		System.out.println("2. Fire blast: Attacks for 50 extra damage, but loses 20 hp \n");
 	}
 
 	@Override

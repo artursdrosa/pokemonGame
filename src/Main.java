@@ -32,13 +32,14 @@ public class Main {
 			}
 		}
 		System.out.println("Which power are you using? \n");
+		p.getPlayer().getPokemon(pokeIndex).showPowers();
 		int powerIndex = 1;
-		while(pokeIndex != 2 || powerIndex != 1) {
+		while(powerIndex != 2 || powerIndex != 1) {
 			powerIndex = -1;
 			try {
 				powerIndex = sc.nextInt();
 			} catch (Exception e) {
-				System.out.println("Informe um número de 1 a 2 para escolher seu pokemon!");
+				System.out.println("Chose a number between 1 and 2 to chose the power!");
 			}
 		}
 		if (powerIndex == 1)
