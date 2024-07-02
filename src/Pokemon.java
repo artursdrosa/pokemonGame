@@ -9,8 +9,7 @@ public abstract class Pokemon {
 	public abstract void power1(EnemyPokemon enemy);
 	public abstract void power2(EnemyPokemon enemy);
 	public abstract void tryToEvolve();
-
-
+	public abstract void showPowers();
 	
 	public void useItem(Item item) { // tem que pegar o pokemon do player e o item do player no main
 	    if (item.isType()) {
@@ -41,12 +40,13 @@ public abstract class Pokemon {
 	public void setAtackPoints(int attackPoints) {
 		this.attackPoints = attackPoints;
 	}
-
+	
+	
 	public void setXp(int xp) {
 		this.xp = xp;
 	}
 
-	public void setName(String name) {
+	protected void setName(String name) {
 		this.name = name;
 	}
 

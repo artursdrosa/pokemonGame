@@ -4,6 +4,12 @@ public class Bulbasaur extends Pokemon{
 	}
 
 	@Override
+	public void showPowers() {
+		System.out.println("1. Leaf throw: Performs an avarege attack doing " + this.getAttackPoints() +" damage");
+		System.out.println("2. Deep Dive: Attacks for 30 less damage, but earns 5 extra xp");
+	}
+	
+	@Override
 	public void power1(EnemyPokemon enemy) {
 		enemy.setHeathPoints(enemy.getHeathPoints()-this.getAttackPoints());
 	}

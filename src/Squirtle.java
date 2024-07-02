@@ -4,6 +4,12 @@ public class Squirtle extends Pokemon{
 	public Squirtle() {
 		super("Squirtle", 1200, 400);
 	}
+	
+	@Override
+	public void showPowers() {
+		System.out.println("1. Water Splash: Performs an avarege attack doing " + this.getAttackPoints() +" damage");
+		System.out.println("2. Deep Dive: Attacks for 10 less damage, but earns 10 extra xp");
+	}
 
 	@Override
 	public void power1(EnemyPokemon enemy) {
@@ -13,7 +19,7 @@ public class Squirtle extends Pokemon{
 	@Override
 	public void power2(EnemyPokemon enemy) {
 		enemy.setHeathPoints(enemy.getHeathPoints()-(this.getAttackPoints()-30));
-		setXp(getXp()+30);
+		setXp(getXp()+10);
 	}
 
 	@Override
@@ -31,8 +37,6 @@ public class Squirtle extends Pokemon{
 				this.setLevel('3');
 			}else
 				System.out.println("Você não tem XP suficiente para evoluir!");
-
-
 	}
 
 }

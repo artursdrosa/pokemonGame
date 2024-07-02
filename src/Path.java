@@ -14,7 +14,7 @@ public class Path {
 	}
 	
 	public void startOrResetGame(int pathSize, Player player) {
-		this.setPlayer(player);
+		this.player = player;
 		this.size = pathSize;
 		this.slots = new Obstacle[pathSize][4];
 		ObstacleFactory factory = new ObstacleFactory();
@@ -45,12 +45,30 @@ public class Path {
 		System.out.println(cont);
 		return result;
 	}
+	
+	public void showPath(Player p) {
+		for(int i = 0;i<this.size;i++) {
+			for (int j = 0; j < 4; j++) {
+				if (j%4==0 && i!=0) {
+					System.out.println("");
+				}
+				if (p.getPosition(0) == i && p.getPosition(1) == j) {
+					System.out.print("[X]");
+				}else {
+					System.out.print("|^|");
+				}
+				
+			}
+		}
+		System.out.println("\n");
+	}
 
 	public Player getPlayer() {
 		return player;
 	}
 
-	public void setPlayer(Player player) {
-		this.player = player;
+	public Obstacle getObstacle(int x, int y){
+		return this.slots[x][y];
 	}
+	
 }
