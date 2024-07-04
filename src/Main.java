@@ -4,7 +4,7 @@ public class Main {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		Player theo = new Player("theo");
+		Player theo = new Player("player1");
 		Path p = Path.getInstance();
 		p.startOrResetGame(6, theo);
 		//System.out.println(p.toString());
@@ -31,24 +31,26 @@ public class Main {
 				System.out.println("Chose a number between 1 and 2 to chose your pokemon!");
 			}
 		}
-		System.out.println("Which power are you using? \n");
-		p.getPlayer().getPokemon(pokeIndex).showPowers();
-		int powerIndex = 1;
-		while(powerIndex != 2 || powerIndex != 1) {
-			powerIndex = -1;
-			try {
-				powerIndex = sc.nextInt();
-			} catch (Exception e) {
-				System.out.println("Chose a number between 1 and 2 to chose the power!");
+		while(p.getPlayer().getPokemon(pokeIndex).getHealthPoints()>0 && enemy.getHeathPoints()>0) {
+			System.out.println("Which power are you using? \n");
+			p.getPlayer().getPokemon(pokeIndex).showPowers();
+			int powerIndex = 1;
+			while(powerIndex != 2 || powerIndex != 1) {
+				powerIndex = -1;
+				try {
+					powerIndex = sc.nextInt();
+				} catch (Exception e) {
+					System.out.println("Chose a number between 1 and 2 to chose the power!");
+				}
+			}
+			if (powerIndex == 1)
+				p.getPlayer().getPokemon(pokeIndex).power1(enemy);
+			else
+				p.getPlayer().getPokemon(pokeIndex).power2(enemy);
+			if (enemy.getHeathPoints()>0) {
+				enemy.attack(p.getPlayer().getPokemon(pokeIndex));
 			}
 		}
-		if (powerIndex == 1)
-			p.getPlayer().getPokemon(pokeIndex).power1(enemy);
-		else
-			p.getPlayer().getPokemon(pokeIndex).power2(enemy);
-		
-		
-		
 	}
 
 }

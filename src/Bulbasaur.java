@@ -19,6 +19,8 @@ public class Bulbasaur extends Pokemon{
 	public void power2(EnemyPokemon enemy) {
 		enemy.setHeathPoints(enemy.getHeathPoints()-(this.getAttackPoints()-30));
 		setHealthPoints(getHealthPoints()+100);
+		System.out.println(this.getName()+" attacks for " + (this.getAttackPoints()-30) + " damage and heals 100 hp");
+
 	}
 
 	@Override

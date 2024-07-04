@@ -14,12 +14,16 @@ public class Squirtle extends Pokemon{
 	@Override
 	public void power1(EnemyPokemon enemy) {
 		enemy.setHeathPoints(enemy.getHeathPoints()-this.getAttackPoints());
+		System.out.println(this.getName()+" attacks for " + this.getAttackPoints() + " damage");
+
 	}
 
 	@Override
 	public void power2(EnemyPokemon enemy) {
 		enemy.setHeathPoints(enemy.getHeathPoints()-(this.getAttackPoints()-30));
 		setXp(getXp()+10);
+		System.out.println(this.getName()+" attacks for " + (this.getAttackPoints()-30) + " damage and gains 10 extra xp");
+
 	}
 
 	@Override
