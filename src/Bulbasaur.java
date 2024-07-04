@@ -30,15 +30,16 @@ public class Bulbasaur extends Pokemon{
 			this.setHealthPoints(1800);
 			this.setAttackPoints(400);
 			this.setLevel('2');
+			System.out.println("Your Bulbasaur evolved to Ivysaur!");
 		}else
 		if(this.getXp()>=35 && this.getLevel()=='2'){
 			this.setName("Venusaur");
 			this.setHealthPoints(2400);
 			this.setAttackPoints(750);
 			this.setLevel('3');
+			System.out.println("Your Ivysaur evolved to Venasaur!");
 		}else
-			System.out.println("Você não tem XP suficiente para evoluir!");
-		
+			System.out.println("This pokemon does not have enought xp to evolve");		
 	}
 
 

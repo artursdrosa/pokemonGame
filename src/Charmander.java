@@ -32,14 +32,18 @@ public class Charmander extends Pokemon{
 			this.setHealthPoints(1400);
 			this.setAttackPoints(700);
 			this.setLevel('2');
+			System.out.println("Your Charmander evolved to Charmeleon!");
+			System.out.println(this.toString());
 		}else
 		if(this.getXp()>=35 && this.getLevel()=='2'){
 			this.setName("Charizard");
 			this.setHealthPoints(2000);
 			this.setAttackPoints(1250);
 			this.setLevel('3');
+			System.out.println("Your Charmeleon evolved to Chalizard!");
+			System.out.println(this.toString());
 		}else
-			System.out.println("Você não tem XP suficiente para evoluir!");
+			System.out.println("This pokemon does not have enought xp to evolve");
 		
 	}
 }

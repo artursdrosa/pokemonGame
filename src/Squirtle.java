@@ -21,7 +21,7 @@ public class Squirtle extends Pokemon{
 	@Override
 	public void power2(EnemyPokemon enemy) {
 		enemy.setHeathPoints(enemy.getHeathPoints()-(this.getAttackPoints()-30));
-		setXp(getXp()+10);
+		incrementXp();
 		System.out.println(this.getName()+" attacks for " + (this.getAttackPoints()-30) + " damage and gains 10 extra xp");
 
 	}
@@ -33,14 +33,16 @@ public class Squirtle extends Pokemon{
 			this.setHealthPoints(1600);
 			this.setAttackPoints(600);
 			this.setLevel('2');
+			System.out.println("Your Squirtle evolved to Watertortle!");
 		}else
 			if(this.getXp()>=35 && this.getLevel()=='2'){
 				this.setName("Blastoise");
 				this.setHealthPoints(2100);
 				this.setAttackPoints(1000);
 				this.setLevel('3');
+				System.out.println("Your Watertortle evolved to Blastoise!");
 			}else
-				System.out.println("Você não tem XP suficiente para evoluir!");
+				System.out.println("This pokemon does not have enought xp to evolve");
 	}
 
 }

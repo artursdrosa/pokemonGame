@@ -41,9 +41,8 @@ public abstract class Pokemon {
 		this.attackPoints = attackPoints;
 	}
 	
-	
-	public void setXp(int xp) {
-		this.xp = xp;
+	public void incrementXp() {
+		this.xp +=10;
 	}
 
 	protected void setName(String name) {

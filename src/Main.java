@@ -53,6 +53,9 @@ public class Main {
 
 	        System.out.println("Let's start your journey! 'A journey of a thousand miles starts with one footstep...'");
 	        while (player1.getPosition(0) < lines) {
+	        	if (player1.getPosition(0)>=0) {
+	        		checkAction(path,sc);
+	        	}
 	        	System.out.println("Which position do you want to explore? (1 to 4)");
 	            path.showPath(player1); 
 	            int pos = 0;
@@ -62,6 +65,7 @@ public class Main {
 	                	if (player1.getPosition(0)!=lines) {
 	                		pos = sc.nextInt();
 		                    if (pos >= 1 && pos <= 4) {
+		                    	path.getPlayer().showItems();
 		                        path.getPlayer().walk(pos);
 		                        digSlot(path, sc);
 		                        validPosition = true;
@@ -78,9 +82,9 @@ public class Main {
 	                    sc.next(); // clear the invalid input
 	                }
 	            }
-	            System.out.println(player1.getPosition(0));
 	            if (player1.getPosition(0) == lines-1) {
 	            	path.showPath(player1);
+	            	digSlot(path, sc);
 	            	break;
 	            }
 	        }
@@ -95,6 +99,43 @@ public class Main {
 		}
 	}
 	
+	private static void checkAction(Path p,Scanner sc) {
+		boolean stop = false;
+		int opt = 0;
+		while(!stop) {
+			System.out.println("Do you want to: ");
+			System.out.println(
+					"1. Check pokemons current stats \n"
+					+ "2. Use item \n"
+					+ "3. Try to evolve pokemon \n"
+					+ "0. Keep walking \n");
+			opt = sc.nextInt();
+			if (opt==1) {
+				p.getPlayer().showPokemons();
+			}else if(opt==2) {
+				if (p.getPlayer().hasItems()) {
+				System.out.println("Here are your items: \n");
+				p.getPlayer().showItems();
+				System.out.println("Which item do you want to use? ");
+				int itemPick = sc.nextInt();
+				System.out.println("In which pokemon?");
+				p.getPlayer().showPokemons();
+				int pokePick = sc.nextInt();
+				p.getPlayer().useItem(pokePick-1, itemPick-1);
+				}else {
+					System.out.println("You currently do not have items to use!");
+				}
+			}else if(opt == 3) {
+				System.out.println("Which pokemon do you want to try to evolve?");
+				p.getPlayer().showPokemons();
+				int pokePick = sc.nextInt();
+				p.getPlayer().getPokemon(pokePick-1).tryToEvolve();
+			}else if (opt == 0) {
+				stop = true;
+			}
+		}
+	}
+
 	public static boolean isEnemy(Path p) { // function to use internally in battles
 		int x = p.getPlayer().getPosition(0);
 		int y = p.getPlayer().getPosition(1);
@@ -105,45 +146,63 @@ public class Main {
 	}
 	
 	public static void digSlot(Path p, Scanner sc) {
-		if(isEnemy(p)) {
-			EnemyPokemon enemy = (EnemyPokemon) p.getObstacle(p.getPlayer().getPosition(0), p.getPlayer().getPosition(1));
-			System.out.println("An enemy apeared! \n" + enemy.toString() + "\n");
-			System.out.println("Chose your pokemon for this battle: \n");
-			p.getPlayer().showPokemons();
-			int pokeIndex = 1;
-			while(pokeIndex != 2 || pokeIndex != 1) {
-				pokeIndex = -1;
-				try {
-					pokeIndex = sc.nextInt();
-				} catch (Exception e) {
-					System.out.println("Chose a number between 1 and 2 to chose your pokemon!");
-				}
-			}
-			while(p.getPlayer().getPokemon(pokeIndex).getHealthPoints()>0 && enemy.getHeathPoints()>0) {
-				System.out.println("Which power are you using? \n");
-				p.getPlayer().getPokemon(pokeIndex).showPowers();
-				int powerIndex = 1;
-				while(powerIndex != 2 || powerIndex != 1) {
-					powerIndex = -1;
-					try {
-						powerIndex = sc.nextInt();
-					} catch (Exception e) {
-						System.out.println("Chose a number between 1 and 2 to chose the power!");
-					}
-				}
-				if (powerIndex == 1)
-					p.getPlayer().getPokemon(pokeIndex).power1(enemy);
-				else
-					p.getPlayer().getPokemon(pokeIndex).power2(enemy);
-				if (enemy.getHeathPoints()>0) {
-					enemy.attack(p.getPlayer().getPokemon(pokeIndex));
-				}
-			}
-        }
+		if (isEnemy(p)) {
+	        EnemyPokemon enemy = (EnemyPokemon) p.getObstacle(p.getPlayer().getPosition(0), p.getPlayer().getPosition(1));
+	        System.out.println("===An enemy appeared!=== \n" + enemy.toString() + "\n");
+	        System.out.println("Choose your pokemon for this battle: \n");
+	        p.getPlayer().showPokemons();
+	        
+	        int pokeIndex = -1;
+	        while (pokeIndex != 1 && pokeIndex != 2) {
+	            System.out.println("Enter 1 or 2 to choose your pokemon:");
+	            try {
+	                pokeIndex = sc.nextInt();
+	                if (pokeIndex != 1 && pokeIndex != 2) {
+	                    System.out.println("Invalid input. Please choose a number between 1 and 2.");
+	                }
+	            } catch (InputMismatchException e) {
+	                System.out.println("Invalid input. Please enter a valid integer between 1 and 2.");
+	                sc.nextLine(); // clear the invalid input
+	            }
+	        }
+	        
+	        while (p.getPlayer().getPokemon(pokeIndex - 1).getHealthPoints() > 0 && enemy.getHeathPoints() > 0) {
+	            System.out.println("Which power are you using? \n");
+	            p.getPlayer().getPokemon(pokeIndex - 1).showPowers();
+	            
+	            int powerIndex = -1;
+	            while (powerIndex != 1 && powerIndex != 2) {
+	                System.out.println("Enter 1 or 2 to choose the power:");
+	                try {
+	                    powerIndex = sc.nextInt();
+	                    if (powerIndex != 1 && powerIndex != 2) {
+	                        System.out.println("Invalid input. Please choose a number between 1 and 2.");
+	                    }
+	                } catch (InputMismatchException e) {
+	                    System.out.println("Invalid input. Please enter a valid integer between 1 and 2.");
+	                    sc.nextLine(); // clear the invalid input 
+	                }
+	            }
+
+	            if (powerIndex == 1) {
+	                p.getPlayer().getPokemon(pokeIndex - 1).power1(enemy);
+	            } else {
+	                p.getPlayer().getPokemon(pokeIndex - 1).power2(enemy);
+	            }
+
+	            if (enemy.getHeathPoints() > 0) {
+	                enemy.attack(p.getPlayer().getPokemon(pokeIndex - 1));
+	                System.out.println("Enemy attacked for " + enemy.getAttackPoints() + " damage!");
+	            }
+	        }
+	        p.getPlayer().getPokemon(pokeIndex-1).incrementXp();
+	    }
 		else { // if is item
 			Item item = (Item) p.getObstacle(p.getPlayer().getPosition(0), p.getPlayer().getPosition(1));
-			System.out.println("You just found an item!");
+			System.out.println("===You just found an item!===");
 			System.out.println(item.toString());
+			p.getPlayer().collectItem(item);
+			System.out.println("This item was added to your item bag, you are able to use it on yout next movemnt.");
 		}
 		
 	}

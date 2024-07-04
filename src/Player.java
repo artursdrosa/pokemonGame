@@ -24,11 +24,31 @@ public class Player {
 		this.position[0] = -1;
 		this.position[1] = -1;
 	}
-
+	
 	public void showItems() {
+		int cont = 1;
 		for(Item i: items) {
-			System.out.println(i.toString());
+			System.out.println(cont + ". " +i.toString());
+			cont++;
 		}
+	}
+	
+	public void useItem(int pokeIndex, int itemIndex) {
+		try {
+			System.out.println("item points: "+this.items.get(itemIndex).getPoints());
+			if(this.items.get(itemIndex).isType()) {
+				this.pokemons.get(pokeIndex).setHealthPoints(this.pokemons.get(itemIndex).getHealthPoints() + this.items.get(itemIndex).getPoints());
+			}else {
+				this.pokemons.get(pokeIndex).setAtackPoints(this.pokemons.get(itemIndex).getAttackPoints() + this.items.get(itemIndex).getPoints());
+			}
+			this.items.remove(itemIndex);
+		} catch (IndexOutOfBoundsException e) {
+			
+		}
+	}
+	
+	public boolean hasItems() {
+		return this.items.size()>0;
 	}
 	
 	public void collectItem(Item item){
