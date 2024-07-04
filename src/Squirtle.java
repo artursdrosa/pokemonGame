@@ -7,7 +7,7 @@ public class Squirtle extends Pokemon{
 	
 	@Override
 	public void showPowers() {
-		System.out.println("1. Water Splash: Performs an avarege attack doing " + this.getAttackPoints() +" damage");
+		System.out.println("1. Water Splash: Performs an averege attack doing " + this.getAttackPoints() +" damage");
 		System.out.println("2. Deep Dive: Attacks for 10 less damage, but earns 10 extra xp \n");
 	}
 

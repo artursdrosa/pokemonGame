@@ -3,18 +3,45 @@ import java.util.Scanner;
 public class Main {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		Player theo = new Player("player1");
-		Path p = Path.getInstance();
-		p.startOrResetGame(6, theo);
-		//System.out.println(p.toString());
-		theo.walk(2);
-		p.showPath(theo);
-		theo.walk(1);
-		p.showPath(theo);
-		theo.walk(4);
-		p.showPath(theo);
+		boolean continueGame = true;
+		while (continueGame) {
+			System.out.println("You started your Pokemon Journey!\n");
+			Player theo = new Player("theo");
+			Scanner sc = new Scanner(System.in);
+			int qtdPokemon = 0;
+			while (qtdPokemon != 2) { // Forces the player to have 2 pokemons
+				String optPokemon = "";
+				while(!optPokemon.equals("charmander") && !optPokemon.equals("squirtle") && !optPokemon.equals("bulbasaur")) {
+					System.out.println("Write the name of the pokemon you want to choose:\n"+
+							"1- Charmander: 1110 HealthPoints, 450 AttackPoints\n"+
+							"2- Squirtle: 1200 HealthPoints, 400 AttackPoints\n"+
+							"3- Bulbasaur: 1500 HealthPoints, 250 AttackPoints");
+					optPokemon=sc.nextLine().toLowerCase();
+				}
+				theo.addPokemon(optPokemon);
+				System.out.println("\nYou chose "+theo.getPokemon(qtdPokemon).getName()+", well done!\n");
+				qtdPokemon++;
+			}
 
+			theo.showPokemons();
+			Path p = Path.getInstance();
+			p.startOrResetGame(6, theo);
+			//System.out.println(p.toString());
+			theo.walk(2);
+			p.showPath(theo);
+			theo.walk(1);
+			p.showPath(theo);
+			theo.walk(4);
+			p.showPath(theo);
+			String optContinue = "";
+			while(!optContinue.equals("y") && !optContinue.equals("n")) {
+				System.out.println("Wanna play more? Y/N");
+				optContinue=sc.nextLine().toLowerCase();
+			}
+
+			if(optContinue.equals("n"))
+				continueGame = false;
+		}
 	}
 	
 	public static void battleEnemy(Path p, Scanner sc) {
