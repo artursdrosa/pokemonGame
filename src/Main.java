@@ -95,6 +95,7 @@ public class Main {
 			}
 
 			if(optContinue.equals("n"))
+				System.out.println("Thanks for playing!");
 				continueGame = false;
 		}
 	}
