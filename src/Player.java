@@ -16,8 +16,8 @@ public class Player {
 		this.position = new int[2];
 		this.position[0] = -1;
 		this.position[1] = -1;
-		this.items = new ArrayList<>();
-		this.pokemons = new ArrayList<>();
+		this.items = new ArrayList<Item>();
+		this.pokemons = new ArrayList<Pokemon>();
 	}
 	
 	public void backToStart() {
