@@ -4,6 +4,10 @@ public class Charmander extends Pokemon{
 		super("Charmander", 1100, 450);
 		// TODO Auto-generated constructor stub
 	}
+	public void showPowers() {
+		System.out.println("1. Flamethrower: Performs an average attack doing " + this.getAttackPoints() +" damage");
+		System.out.println("2. Fire Blast: Loses 20 Health points, but gives 50 more attack points");
+	}
 
 	@Override
 	public void power1(EnemyPokemon enemy) {

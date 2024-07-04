@@ -16,6 +16,8 @@ public class Player {
 		this.position = new int[2];
 		this.position[0] = -1;
 		this.position[1] = -1;
+		this.items = new ArrayList<>();
+		this.pokemons = new ArrayList<>();
 	}
 	
 	public void backToStart() {
@@ -45,7 +47,7 @@ public class Player {
 		int i = 0;
 		for(Pokemon p:pokemons) {
 			i++;
-			System.out.println("1. " + p.toString() + "\n");
+			System.out.println(i+ ". " + p.toString() + "\n");
 		}
 	}
 	
@@ -61,11 +63,11 @@ public class Player {
 	}
 	public void addPokemon(String name) {
 		if (pokemons.size()<2) { // player can have up to 2 pokemon, so he can select which one he wants to use in battle
-			if (name.toLowerCase() == "charmander") { // the pokemon only exists inside the player
+			if (name.equals("charmander")) { // the pokemon only exists inside the player
 				pokemons.add(new Charmander());
-			}else if (name.toLowerCase() == "squirtle") {
+			}else if (name.equals("squirtle")) {
 				pokemons.add(new Squirtle());
-			}else if (name.toLowerCase() == "bulbasaur") {
+			}else if (name.equals("bulbasaur")) {
 				pokemons.add(new Bulbasaur());
 			}else {
 				System.out.println("POKEMON DOES NOT EXIST"); // REMOVER ISSO, EXCESSAO DEVE SER TRATADA NO MAIN
