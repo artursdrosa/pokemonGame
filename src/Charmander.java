@@ -6,11 +6,6 @@ public class Charmander extends Pokemon{
 	
 	@Override
 	public void showPowers() {
-		System.out.println("1. Flamethrower: Performs an avarege attack doing " + this.getAttackPoints() +" damage");
-		System.out.println("2. Fire blast: Attacks for 50 extra damage, but loses 20 hp \n");
-		
-	}
-	public void showPowers() {
 		System.out.println("1. Flamethrower: Performs an average attack doing " + this.getAttackPoints() +" damage");
 		System.out.println("2. Fire Blast: Loses 20 Health points, but gives 50 more attack points");
 	}

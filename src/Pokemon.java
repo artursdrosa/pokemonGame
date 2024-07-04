@@ -69,7 +69,7 @@ public abstract class Pokemon {
 	
 	@Override
 	public String toString() {
-		return "| "+ name + " => health: " + healthPoints + " atack: " + attackPoints + " level: " + level + " | ";
+		return "| "+ name + " => health: " + healthPoints + ", atack: " + attackPoints + ", level: " + level + " | ";
 	}
 
 
