@@ -5,19 +5,22 @@ public class Bulbasaur extends Pokemon{
 
 	@Override
 	public void showPowers() {
-		System.out.println("1. Leaf throw: Performs an average attack doing " + this.getAttackPoints() +" damage");
-		System.out.println("2. Razor Leaf: Attacks for 30 less damage, but earns 5 extra xp");
+		System.out.println("1. Leaf throw: Performs an avarege attack doing " + this.getAttackPoints() +" damage");
+		System.out.println("2. Razor leaf: Attacks for 30 less damage, but recovers 100 hp \n");
 	}
 	
 	@Override
 	public void power1(EnemyPokemon enemy) {
 		enemy.setHeathPoints(enemy.getHeathPoints()-this.getAttackPoints());
+		System.out.println(this.getName()+" attacks for " + this.getAttackPoints() + " damage");
 	}
 
 	@Override
 	public void power2(EnemyPokemon enemy) {
 		enemy.setHeathPoints(enemy.getHeathPoints()-(this.getAttackPoints()-30));
-		setHealthPoints(getHealthPoints()+30);
+		setHealthPoints(getHealthPoints()+100);
+		System.out.println(this.getName()+" attacks for " + (this.getAttackPoints()-30) + " damage and heals 100 hp");
+
 	}
 
 	@Override

@@ -69,8 +69,6 @@ public class Player {
 				pokemons.add(new Squirtle());
 			}else if (name.equals("bulbasaur")) {
 				pokemons.add(new Bulbasaur());
-			}else {
-				System.out.println("POKEMON DOES NOT EXIST"); // REMOVER ISSO, EXCESSAO DEVE SER TRATADA NO MAIN
 			}
 		}else {
 			throw new ArrayIndexOutOfBoundsException(); // using specific exception 

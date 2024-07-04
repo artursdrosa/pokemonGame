@@ -7,19 +7,23 @@ public class Squirtle extends Pokemon{
 	
 	@Override
 	public void showPowers() {
-		System.out.println("1. Water Splash: Performs an average attack doing " + this.getAttackPoints() +" damage");
-		System.out.println("2. Deep Dive: Attacks for 10 less damage, but earns 10 extra xp");
+		System.out.println("1. Water Splash: Performs an averege attack doing " + this.getAttackPoints() +" damage");
+		System.out.println("2. Deep Dive: Attacks for 10 less damage, but earns 10 extra xp \n");
 	}
 
 	@Override
 	public void power1(EnemyPokemon enemy) {
 		enemy.setHeathPoints(enemy.getHeathPoints()-this.getAttackPoints());
+		System.out.println(this.getName()+" attacks for " + this.getAttackPoints() + " damage");
+
 	}
 
 	@Override
 	public void power2(EnemyPokemon enemy) {
 		enemy.setHeathPoints(enemy.getHeathPoints()-(this.getAttackPoints()-30));
 		setXp(getXp()+10);
+		System.out.println(this.getName()+" attacks for " + (this.getAttackPoints()-30) + " damage and gains 10 extra xp");
+
 	}
 
 	@Override

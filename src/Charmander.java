@@ -2,7 +2,13 @@
 public class Charmander extends Pokemon{
 	public Charmander() {
 		super("Charmander", 1100, 450);
-		// TODO Auto-generated constructor stub
+	}
+	
+	@Override
+	public void showPowers() {
+		System.out.println("1. Flamethrower: Performs an avarege attack doing " + this.getAttackPoints() +" damage");
+		System.out.println("2. Fire blast: Attacks for 50 extra damage, but loses 20 hp \n");
+		
 	}
 	public void showPowers() {
 		System.out.println("1. Flamethrower: Performs an average attack doing " + this.getAttackPoints() +" damage");
@@ -12,12 +18,16 @@ public class Charmander extends Pokemon{
 	@Override
 	public void power1(EnemyPokemon enemy) {
 		enemy.setHeathPoints(enemy.getHeathPoints()-this.getAttackPoints());
+		System.out.println(this.getName()+" attacks for " + this.getAttackPoints() + " damage");
+
 	}
 
 	@Override
 	public void power2(EnemyPokemon enemy) {
-		setHealthPoints(getHealthPoints()-20);
+		this.setHealthPoints(this.getHealthPoints()-20);
 		enemy.setHeathPoints(enemy.getHeathPoints()-(this.getAttackPoints()+50));
+		System.out.println(this.getName()+" attacks for " + (this.getAttackPoints()+50) + " but does 20 damage to itself");
+
 	}
 
 	@Override
